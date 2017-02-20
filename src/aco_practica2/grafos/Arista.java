@@ -15,12 +15,12 @@ public class Arista {
         next=null;
     }
 
-    public int getInicio() {
-        return inicio.getNum();
+    public Vertice getInicio() {
+        return inicio;
     }
 
-    public int getFin() {
-        return fin.getNum();
+    public Vertice getFin() {
+        return fin;
     }
 
     public int getPeso() {
