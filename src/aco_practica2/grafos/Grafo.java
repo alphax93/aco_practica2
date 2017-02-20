@@ -24,38 +24,21 @@ public class Grafo {
 
     }
 
-    public void connect(Vertice origen , Vertice fin, int value) {
-
-        if(origen.getEtapa()>fin.getEtapa()){
-            Vertice temp = origen;
-            origen = fin;
-            fin = temp;
-        }
-        Arista aux = origen.getArista();
-        if(aux==null){
-            origen.setArista(new Arista(value,origen,fin));
-        }else{
-            origen.setArista(new Arista(value,origen,fin));
-            origen.getArista().setNext(aux);
-        }
-        /*if(!isConnected(i,j)){
-            if(i>j){
-                int temp = i;
-                i = j;
-                j = temp;
+    public void connect(Vertice origen, Vertice fin, int value) {
+        if(!isConnected(origen,fin)){
+            if (origen.getEtapa() > fin.getEtapa()) {
+                Vertice temp = origen;
+                origen = fin;
+                fin = temp;
             }
-            Arista aux = vertices[i].getArista();
-            if(aux==null){
-                vertices[i].setArista(new Arista(value,vertices[i],vertices[j]));
+            Arista aux = origen.getArista();
+            if (aux == null) {
+                origen.setArista(new Arista(value, origen, fin));
             } else {
-                
-                vertices[i].setArista(new Arista(value,vertices[i],vertices[j]));
-                vertices[i].getArista().setNext(aux);
-
+                origen.setArista(new Arista(value, origen, fin));
+                origen.getArista().setNext(aux);
             }
-            aristas++;
-        }*/
-
+        }
     }
 
     /*public void disconnect(int i, int j) {
@@ -89,55 +72,32 @@ public class Grafo {
     public int getAristas() {
         return aristas;
     }*/
-
     public boolean isConnected(Vertice origen, Vertice fin) {
-        
-        if(origen.getEtapa()>fin.getEtapa()){
+
+        if (origen.getEtapa() > fin.getEtapa()) {
             Vertice temp = origen;
             origen = fin;
             fin = temp;
         }
         Arista aux = origen.getArista();
-        if(aux==null) return false;
-        while(aux.hasNext()){
-            if(aux.getInicio()==origen&&aux.getFin()==fin){
-                return true;
-                
-            }
-            aux=aux.getNext();
+        if (aux == null) {
+            return false;
         }
-        if(aux.getNext()==null){
-            if(aux.getInicio()==origen&&aux.getFin()==fin){
+        while (aux.hasNext()) {
+            if (aux.getInicio() == origen && aux.getFin() == fin) {
                 return true;
-                
+
+            }
+            aux = aux.getNext();
+        }
+        if (aux.getNext() == null) {
+            if (aux.getInicio() == origen && aux.getFin() == fin) {
+                return true;
+
             }
             return false;
         }
         return false;
-        /*if(i>j){
-            int temp = i;
-            i = j;
-            j = temp;
-        }
-        
-        Arista aux = vertices[i].getArista();
-        if(aux==null) return false;
-        while(aux.hasNext()){
-            
-            if(aux.getInicio()==i&&aux.getFin()==j){
-                return true;
-                
-            }
-            aux=aux.getNext();
-        }
-        if(aux.getNext()==null){
-            if(aux.getInicio()==i&&aux.getFin()==j){
-                return true;
-                
-            }
-            return false;
-        }*/
-        
 
     }
 
@@ -166,12 +126,10 @@ public class Grafo {
         }
         return result;//list.toArray(new Arista[0]);
     }*/
-
     public void añadirVertice(Vertice v) {
         if (!etapas[v.getEtapa()].contains(v)) {
             etapas[v.getEtapa()].add(v);
         }
     }
 
-    
 }

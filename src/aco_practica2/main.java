@@ -26,6 +26,9 @@ public class main {
         }
         System.out.println("-------------------------------");
         original.connect(v1, v2, 8);
+        if(original.isConnected(v1,v2)){
+            System.out.println("Correcto");
+        }
     }
     
     
