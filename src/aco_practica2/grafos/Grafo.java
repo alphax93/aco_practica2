@@ -21,6 +21,7 @@ public class Grafo {
             etapas[i] = new ArrayList<>();
 
         }
+        
 
     }
 
@@ -128,6 +129,12 @@ public class Grafo {
     }*/
     public void añadirVertice(Vertice v) {
         if (!etapas[v.getEtapa()].contains(v)) {
+            if(v.getEtapa()==0&&etapas[v.getEtapa()].size()==1){
+                return;
+            }
+            if(v.getEtapa()==etapas.length-1&&etapas[v.getEtapa()].size()==1){
+                return;
+            }
             etapas[v.getEtapa()].add(v);
         }
     }
