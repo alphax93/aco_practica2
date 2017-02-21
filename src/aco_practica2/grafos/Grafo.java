@@ -32,6 +32,7 @@ public class Grafo {
                 origen = fin;
                 fin = temp;
             }
+            
             Arista aux = origen.getArista();
             if (aux == null) {
                 origen.setArista(new Arista(value, origen, fin));

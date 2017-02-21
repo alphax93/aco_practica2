@@ -47,6 +47,11 @@ public class main {
                 System.out.println(v.getEtapa() + " " + v.getNum());
             }
         }
+        System.out.println("---------------------------------");
+        List<Vertice> result = Ruta.ruta(original);
+        for (Vertice vertice : result) {
+            System.out.println(vertice.getEtapa() + " " + vertice.getNum());
+        }
     }
     
     

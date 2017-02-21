@@ -1,6 +1,9 @@
 
 package aco_practica2.grafos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Vertice {
     
@@ -26,7 +29,16 @@ public class Vertice {
         return etapa;
     }
 
-    
+    public List<Arista> getEveryArista(){
+        List<Arista> result = new ArrayList<>();
+        Arista aux = arista;
+        result.add(aux);
+        while(aux.hasNext()){
+            aux=aux.getNext();
+            result.add(aux);
+        }
+        return result;
+    }
     
     
 
