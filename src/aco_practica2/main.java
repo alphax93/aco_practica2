@@ -1,7 +1,9 @@
 package aco_practica2;
 
+import aco_practica2.grafos.Arista;
 import aco_practica2.grafos.Grafo;
 import aco_practica2.grafos.Vertice;
+import java.util.ArrayList;
 import java.util.List;
 
 public class main {
@@ -48,10 +50,15 @@ public class main {
             }
         }
         System.out.println("---------------------------------");
-        List<Vertice> result = Ruta.ruta(original);
+        List<Vertice> result = new ArrayList<>();
+        int peso= Ruta.ruta(original,result);
+        System.out.println("Peso: " + peso);
         for (Vertice vertice : result) {
             System.out.println(vertice.getEtapa() + " " + vertice.getNum());
         }
+        
+        
+        
     }
     
     
