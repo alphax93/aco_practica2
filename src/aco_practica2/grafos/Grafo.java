@@ -5,17 +5,19 @@ import java.util.List;
 
 public class Grafo {
 
-    private int nV;
+    private int nE;
     private List<Vertice>[] etapas;
     private int aristas;
+    private int nV;
 
     public List<Vertice>[] getEtapas() {
         return etapas;
     }
 
     public Grafo(int n) {
-        nV = n;
+        nE = n;
         aristas = 0;
+        nV=0;
         etapas = new List[n];
         for (int i = 0; i < etapas.length; i++) {
             etapas[i] = new ArrayList<>();
@@ -137,7 +139,12 @@ public class Grafo {
                 return;
             }
             etapas[v.getEtapa()].add(v);
+            nV++;
         }
+    }
+
+    public int getnV() {
+        return nV;
     }
 
 }

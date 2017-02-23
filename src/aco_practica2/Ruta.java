@@ -32,7 +32,7 @@ public class Ruta {
         
         
         List<Arista> aristas = verticeAct.getEveryArista();
-        //ordena(aristas,0, aristas.size()-1);
+        ordena(aristas,0, aristas.size()-1);
         for (Arista arista : aristas) {
             int suma =arista.getPeso()+total;
             if(suma<max){
