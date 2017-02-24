@@ -14,6 +14,12 @@ public class Grafo {
         return etapas;
     }
 
+    public int getnE() {
+        return nE;
+    }
+    
+    
+
     public Grafo(int n) {
         nE = n;
         aristas = 0;

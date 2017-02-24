@@ -57,6 +57,9 @@ public class main {
                 for (Vertice vertice : result) {
                     System.out.println(vertice.getEtapa() + " " + vertice.getNum());
                 }
+                if(!Prueba.respuesta(result, original.getnE())){
+                    System.out.println("ERROR: Ressultado no válido");
+                }
             } else {
                 System.out.println("ERROR: Existen nodos que no avanzan a la siguiente etapa");
             }

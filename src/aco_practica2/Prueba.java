@@ -67,5 +67,20 @@ public class Prueba {
 
         return result;
     }
+    
+    
+    public static boolean respuesta(List<Vertice> vertices, int nE){
+        
+        if(vertices.size()!=nE) {
+            System.out.println("Cantidad de vértices de la respuesta incorrecta");
+            return false;
+        }
+        for (int i = 0; i < vertices.size()-1; i++) {
+            if(vertices.get(i).getEtapa()+1!=vertices.get(i+1).getEtapa()){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
