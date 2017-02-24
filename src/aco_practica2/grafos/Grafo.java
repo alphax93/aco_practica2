@@ -7,7 +7,7 @@ public class Grafo {
 
     private int nE;
     private List<Vertice>[] etapas;
-    private int aristas;
+
     private int nV;
 
     public List<Vertice>[] getEtapas() {
@@ -22,7 +22,7 @@ public class Grafo {
 
     public Grafo(int n) {
         nE = n;
-        aristas = 0;
+  
         nV = 0;
         etapas = new List[n];
         for (int i = 0; i < etapas.length; i++) {
@@ -73,37 +73,7 @@ public class Grafo {
 
     }
 
-    /*public void disconnect(int i, int j) {
 
-        if (isConnected(i, j)) {
-            if (i > j) {
-                int temp = i;
-                i = j;
-                j = temp;
-            }
-            Arista aux = vertices[i].getArista();
-            Arista next = aux.getNext();
-            if (aux.getInicio() == i && aux.getFin() == j) {
-                vertices[i].setArista(next);
-                aristas--;
-                return;
-            }
-            while (aux.hasNext()) {
-                if (next.getInicio() == i && next.getFin() == j) {
-                    aux.setNext(next.getNext());
-                    aristas--;
-                    return;
-                }
-                aux = next;
-                next = next.getNext();
-            }
-
-        }
-    }
-
-    public int getAristas() {
-        return aristas;
-    }*/
     public boolean isConnected(Vertice origen, Vertice fin) {
 
         if (origen.getEtapa() > fin.getEtapa()) {
