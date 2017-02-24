@@ -105,31 +105,7 @@ public class Grafo {
 
     }
 
-    /*public int getnV() {
-        return nV;
-    }
-
-    public Arista[] aristas() {
-        //List<Arista> list = new ArrayList<>();
-        Arista[] result = new Arista[aristas];
-        int j = 0;
-        for (int i = 0; i < vertices.length; i++) {
-            Arista aux = vertices[i].getArista();
-            if (aux != null) {
-                //list.add(aux);
-                result[j] = aux;
-                j++;
-                while (aux.hasNext()) {
-                    aux = aux.getNext();
-                    //list.add(aux);
-                    result[j] = aux;
-                    j++;
-                }
-            }
-
-        }
-        return result;//list.toArray(new Arista[0]);
-    }*/
+    
     public void añadirVertice(Vertice v) {
         if (!etapas[v.getEtapa()].contains(v)) {
             if(v.getEtapa()==0&&etapas[v.getEtapa()].size()==1){
