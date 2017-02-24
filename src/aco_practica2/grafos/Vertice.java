@@ -47,5 +47,11 @@ public class Vertice {
         this.arista = arista;
     }
     
+    public boolean igualA(Vertice v){
+        if(this.etapa==v.etapa && this.num==v.num) {
+            return true;
+        }
+        return false;
+    }
     
 }

@@ -40,7 +40,7 @@ public class main {
         original.connect(v20, v3, 4);
         original.connect(v21, v3, 1);
         original.connect(v22, v3, 1);
-
+        
         List<Vertice>[] a = original.getEtapas();
         for (int i = 0; i < a.length; i++) {
             System.out.println("Etapa " + i);

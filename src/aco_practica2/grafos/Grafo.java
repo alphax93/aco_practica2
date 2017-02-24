@@ -17,24 +17,23 @@ public class Grafo {
     public Grafo(int n) {
         nE = n;
         aristas = 0;
-        nV=0;
+        nV = 0;
         etapas = new List[n];
         for (int i = 0; i < etapas.length; i++) {
             etapas[i] = new ArrayList<>();
 
         }
-        
 
     }
 
     public void connect(Vertice origen, Vertice fin, int value) {
-        if(!isConnected(origen,fin)){
+        if (!isConnected(origen, fin)) {
             if (origen.getEtapa() > fin.getEtapa()) {
                 Vertice temp = origen;
                 origen = fin;
                 fin = temp;
             }
-            
+
             Arista aux = origen.getArista();
             if (aux == null) {
                 origen.setArista(new Arista(value, origen, fin));
@@ -43,6 +42,29 @@ public class Grafo {
                 origen.getArista().setNext(aux);
             }
         }
+    }
+
+    public void disconnect(Vertice origen, Vertice fin) {
+
+        if (isConnected(origen, fin)) {
+            if (origen.getEtapa() > fin.getEtapa()) {
+                Vertice temp = origen;
+                origen = fin;
+                fin = temp;
+            }
+            Arista aux = origen.getArista();
+            if (aux.getInicio().igualA(origen) && aux.getFin().igualA(fin)) {
+                origen.setArista(aux.getNext());
+            }
+            while (aux.hasNext()) {
+                Arista next = aux.getNext();
+                if (next.getInicio().igualA(origen) && next.getFin().igualA(fin)) {
+                    aux.setNext(next.getNext());
+                }
+                aux = next;
+            }
+        }
+
     }
 
     /*public void disconnect(int i, int j) {
@@ -105,13 +127,12 @@ public class Grafo {
 
     }
 
-    
     public void añadirVertice(Vertice v) {
         if (!etapas[v.getEtapa()].contains(v)) {
-            if(v.getEtapa()==0&&etapas[v.getEtapa()].size()==1){
+            if (v.getEtapa() == 0 && etapas[v.getEtapa()].size() == 1) {
                 return;
             }
-            if(v.getEtapa()==etapas.length-1&&etapas[v.getEtapa()].size()==1){
+            if (v.getEtapa() == etapas.length - 1 && etapas[v.getEtapa()].size() == 1) {
                 return;
             }
             etapas[v.getEtapa()].add(v);
