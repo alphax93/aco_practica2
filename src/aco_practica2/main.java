@@ -58,10 +58,10 @@ public class main {
                     System.out.println(vertice.getEtapa() + " " + vertice.getNum());
                 }
             } else {
-                System.out.println("Existen nodos que no avanzan a la siguiente etapa");
+                System.out.println("ERROR: Existen nodos que no avanzan a la siguiente etapa");
             }
         } else {
-            System.out.println("Existen nodos a los que no se puede acceder desde la etapa anterior");
+            System.out.println("ERROR: Existen nodos a los que no se puede acceder desde la etapa anterior");
         }
 
     }
