@@ -32,6 +32,7 @@ public class Vertice {
     public List<Arista> getEveryArista(){
         List<Arista> result = new ArrayList<>();
         Arista aux = arista;
+        if(aux==null) return result;
         result.add(aux);
         while(aux.hasNext()){
             aux=aux.getNext();

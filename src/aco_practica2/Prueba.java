@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Prueba {
 
+    //Comprueba que todos los nodos puedan ser alcanzado desde una etapa anterior
     public static boolean nodoInaccesible(Grafo g) {
 
         List<Vertice> vertices = new ArrayList<>();
@@ -23,11 +24,13 @@ public class Prueba {
                 if (temp.getArista() != null) {
                     List<Arista> aux = temp.getEveryArista();
                     for (Arista arista : aux) {
-                        vertices.add(arista.getFin());
+                        if (arista.getFin().getEtapa() == arista.getInicio().getEtapa() + 1) {
+                            vertices.add(arista.getFin());
+                        }
                     }
 
                 }
-                
+
             }
             vertices.remove(0);
         }
@@ -35,6 +38,34 @@ public class Prueba {
             return true;
         }
         return false;
+    }
+
+    //Comprueba que todos los nodos puedan avanzar a la siguiente etapa
+    public static boolean etapaSiguiente(Grafo g) {
+
+        List<Vertice>[] lista = g.getEtapas();
+        boolean result = false;
+        for (int i = 0; i < lista.length - 1; i++) {
+            for (Vertice vertice : lista[i]) {
+                List<Arista> aristas = vertice.getEveryArista();
+                if (aristas.size() == 0) {
+                    return false;
+                }
+                result = false;
+                for (Arista arista : aristas) {
+                    if (arista.getFin().getEtapa() == arista.getInicio().getEtapa() + 1) {
+                        result = true;
+                        break;
+                    }
+                }
+                if (result == false) {
+                    return result;
+                }
+            }
+
+        }
+
+        return result;
     }
 
 }
